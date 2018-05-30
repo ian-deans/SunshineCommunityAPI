@@ -1,5 +1,5 @@
 {
-  "name": "sunshin_community_api",
+  "name": "sunshine_community_api",
   "version": "1.0.0",
   "description": "Backend API for the sunshine_community app",
   "main": "server.js",
@@ -8,19 +8,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NinjaPirateMonkey/angry_taco.git"
+    "url": "git+https://github.com/NinjaPirateMonkey/SunshineCommunityAPI.git"
   },
   "keywords": [
     "sunshine",
     "community",
-    "sunshin_community"
+    "sunshine_community"
   ],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/NinjaPirateMonkey/angry_taco/issues"
+    "url": "https://github.com/NinjaPirateMonkey/SunshineCommunityAPI/issues"
   },
-  "homepage": "https://github.com/NinjaPirateMonkey/angry_taco#readme",
+  "homepage": "https://github.com/NinjaPirateMonkey/SunshineCommunityAPI#readme",
   "dependencies": {
     "body-parser": "1.18.3",
     "cors": "2.8.4",
