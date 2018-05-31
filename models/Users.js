@@ -1,6 +1,6 @@
-const db = require('../server/db')
+const mongoose = require('mongoose')
 
-const {Schema} = db
+const {Schema} = mongoose
 
 const UserSchema = new Schema({
   name: String,
@@ -21,4 +21,4 @@ UserSchema.methods.toJSON  = function() {
   }
 }
 
-db.model('Users', UserSchema)
+mongoose.model('Users', UserSchema)

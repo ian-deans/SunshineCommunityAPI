@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
@@ -7,9 +8,12 @@ const cors = require('cors')
 const errorHandler = require('errorhandler')
 
 const app = express()
+const mongoose = require('mongoose')
 
+mongoose.promise = global.Promise
 const isProduction = process.env.NODE_ENV === 'production'
 
+// Webserver setup
 app.use(cors())
 app.use(logger('dev'))
 app.use(bodyParser.json())
@@ -17,13 +21,21 @@ app.use(express.static(path.join(__dirname, 'public'))) //TODO: possibly remove 
 app.use(session({secret: 'angryTacoApi', cookie: {maxAge: 60000}, resave: false, saveUninitialized: false}))
 
 if (!isProduction) {
-  app.use(errorHandler())
+    app.use(errorHandler())
 }
+
+// Database setup
+mongoose.connect(process.env.DATABASE_URL)
+mongoose.connection.on('open', () => console.log('Mongoose connected.'))
+mongoose.set('debug', true)
+require('../models/Users')
 
 // routes
 app.use(require('./routes'))
 
 
+
+// Errors
 app.use((req, res, next) => {
   const err = new Error('Not Found')
   err.status = 404
